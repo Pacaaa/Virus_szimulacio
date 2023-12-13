@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="vilag.js" defer></script>
+        <script src="ember.js" defer></script>
+        <script src="script.js" defer></script>
+
+        <title>Szimuláció</title>
+    </head>
+    <body>
+        <div style="width: 721px; height: 621px">
+            <svg id="vaszon" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <button type="button" id="leteszbtn">Letesz</button>
+        <button type="button" id="virusbtn">Virus</button>
+        <button type="button" id="startbtn">Start</button>
+        <button type="button" id="stopbtn">Stop</button>
+
+        <input type="number" id="emberekSzama" placeholder="Emberek száma" />
+        <input type="number" id="betegekSzama" placeholder="Betegek száma" />
+        <input type="number" id="betegsegHossza" placeholder="Betegség hossza" />
+        <div id="statisztikaBetegek"></div>
+    </body>
+</html>
