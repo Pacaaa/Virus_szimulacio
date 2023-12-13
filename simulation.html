@@ -6,28 +6,81 @@
         <script src="vilag.js" defer></script>
         <script src="ember.js" defer></script>
         <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
 
         <title>Szimuláció</title>
     </head>
     <body>
-        <div style="width: 721px; height: 621px">
-            <svg id="vaszon" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="1" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-        </div>
-        <button type="button" id="leteszbtn">Letesz</button>
-        <button type="button" id="virusbtn">Virus</button>
-        <button type="button" id="startbtn">Start</button>
-        <button type="button" id="stopbtn">Stop</button>
+        <div class="container">
+            <div class="main" style="width: 721px; height: 621px">
+                <svg id="vaszon" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+                <button type="button" id="leteszbtn">Letesz</button>
+                <button type="button" id="virusbtn">Virus</button>
+                <button type="button" id="oltasbtn">Oltás</button>
+                <button type="button" id="startbtn">Start</button>
+                <button type="button" id="stopbtn">Stop</button>
+            </div>
+            <div class="side-panel">
+                <label for="emberekSzama">Emberek száma:</label>
+                <input type="number" class="input-field" id="emberekSzama" />
 
-        <input type="number" id="emberekSzama" placeholder="Emberek száma" />
-        <input type="number" id="betegekSzama" placeholder="Betegek száma" />
-        <input type="number" id="betegsegHossza" placeholder="Betegség hossza" />
-        <div id="statisztikaBetegek"></div>
+                <label for="betegekSzama">Betegek száma:</label>
+                <input type="number" class="input-field" id="betegekSzama" />
+
+                <label for="betegsegHossza">Betegség hossza:</label>
+                <input type="number" class="input-field" id="betegsegHossza" />
+
+                <label for="oltottakSzama">Oltottak száma:</label>
+                <input type="number" class="input-field" id="oltottakSzama" />
+
+                <label for="oltottakHossz">Oltás hossza:</label>
+                <input type="number" class="input-field" id="oltottakHossz" />
+
+                <label for="atesettHossz">Átesett hossza:</label>
+                <input type="number" class="input-field" id="atesettHossz" />
+
+                <label for="oltottFertozodes">Oltott fertőződés:</label>
+                <input type="number" class="input-field" id="oltottFertozodes" step="0.1" />
+
+                <label for="oltatlanFertozodes">Oltatlan fertőződés:</label>
+                <input type="number" class="input-field" id="oltatlanFertozodes" step="0.1" />
+
+                <label for="atesettFertozodes">Átesett fertőződés:</label>
+                <input type="number" class="input-field" id="atesettFertozodes" step="0.1" />
+                <div id="statisztika">
+                    <div class="noname">
+                        <div class="label">Nap:</div>
+                        <div id="statisztikaNap"></div>
+                    </div>
+
+                    <div class="noname">
+                        <div class="label">Emberek:</div>
+                        <div id="statisztikaEmberek"></div>
+                    </div>
+
+                    <div class="noname">
+                        <div class="label">Betegek:</div>
+                        <div id="statisztikaBetegek"></div>
+                    </div>
+
+                    <div class="noname">
+                        <div class="label">Oltottak:</div>
+                        <div id="statisztikaOltottak"></div>
+                    </div>
+
+                    <div class="noname">
+                        <div class="label">Átesettek:</div>
+                        <div id="statisztikaAtesett"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

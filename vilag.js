@@ -3,9 +3,13 @@ class Vilag {
         this.nev = nev;
         this.emberei = [];
         this.betegei = [];
+        this.oltottak = [];
+        this.atesettek = [];
     }
-    setalas(hossz) {
-        this.betegseg_ido_csokkenes();
+    setalas(hossz, atesetIdo, oltatlan, oltott, atesett) {
+        this.betegseg_ido_csokkenes(atesetIdo);
+        this.oltas_ido_csokkenes();
+        this.atesett_ido_csokkenes();
         /*
         1:bal
         2:fel
@@ -24,7 +28,7 @@ class Vilag {
                 case 1:
                     if (x - 10 > 0) {
                         Ember.svgobject.setAttribute("cx", x - 10);
-                        Ember.beteggel_egyhelyen(hossz);
+                        Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
                     } else {
                         irany = iranySzam();
                     }
@@ -32,7 +36,7 @@ class Vilag {
                 case 2:
                     if (y - 10 > 0) {
                         Ember.svgobject.setAttribute("cy", y - 10);
-                        Ember.beteggel_egyhelyen(hossz);
+                        Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
                     } else {
                         irany = iranySzam();
                     }
@@ -40,7 +44,7 @@ class Vilag {
                 case 3:
                     if (x + 10 < 716) {
                         Ember.svgobject.setAttribute("cx", x + 10);
-                        Ember.beteggel_egyhelyen(hossz);
+                        Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
                     } else {
                         irany = iranySzam();
                     }
@@ -48,7 +52,7 @@ class Vilag {
                 case 4:
                     if (y + 10 < 616) {
                         Ember.svgobject.setAttribute("cy", y + 10);
-                        Ember.beteggel_egyhelyen(hossz);
+                        Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
                     } else {
                         irany = iranySzam();
                     }
@@ -63,7 +67,7 @@ class Vilag {
         while (virusok < db) {
             random = Math.floor(Math.random() * this.emberei.length);
 
-            if (!this.emberei[random].beteg) {
+            if (!this.emberei[random].beteg && !this.emberei[random].oltott) {
                 this.emberei[random].megbetegit(hossz);
 
                 this.betegei.push(this.emberei[random]);
@@ -71,14 +75,55 @@ class Vilag {
             }
         }
     }
-    betegseg_ido_csokkenes() {
+    oltas_kezdet(db, hossz) {
+        let oltottak = 0;
+        let random;
+        while (oltottak < db) {
+            random = Math.floor(Math.random() * this.emberei.length);
+
+            if (!this.emberei[random].oltott && !this.emberei[random].beteg && !this.emberei[random].atesett) {
+                this.emberei[random].oltas(hossz);
+
+                this.oltottak.push(this.emberei[random]);
+                oltottak++;
+            }
+        }
+    }
+
+    betegseg_ido_csokkenes(atesettIdo) {
         for (const Beteg of this.betegei) {
             Beteg.betegsegHossz--;
             if (Beteg.betegsegHossz == 0) {
                 Beteg.beteg = false;
-                Beteg.belszin = "#2efc00";
-                Beteg.svgobject.setAttribute("fill", "#2efc00");
+                Beteg.atesett = true;
+                Beteg.atesetthossz = atesettIdo;
+                Beteg.belszin = "#f4fc03";
+                Beteg.svgobject.setAttribute("fill", "#f4fc03");
+                this.atesettek.push(Beteg);
                 this.betegei.splice(this.betegei.indexOf(Beteg), 1);
+            }
+        }
+    }
+
+    oltas_ido_csokkenes() {
+        for (const Oltott of this.oltottak) {
+            Oltott.oltashossz--;
+            if (Oltott.oltashossz == 0) {
+                Oltott.oltott = false;
+                Oltott.belszin = "#2efc00";
+                Oltott.svgobject.setAttribute("fill", "#2efc00");
+                this.oltottak.splice(this.oltottak.indexOf(Oltott), 1);
+            }
+        }
+    }
+    atesett_ido_csokkenes() {
+        for (const Atesett of this.atesettek) {
+            Atesett.atesetthossz--;
+            if (Atesett.atesetthossz == 0) {
+                Atesett.atesett = false;
+                Atesett.belszin = "#2efc00";
+                Atesett.svgobject.setAttribute("fill", "#2efc00");
+                this.atesettek.splice(this.atesettek.indexOf(Atesett), 1);
             }
         }
     }
