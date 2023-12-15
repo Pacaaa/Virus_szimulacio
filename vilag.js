@@ -29,33 +29,29 @@ class Vilag {
                     if (x - 10 > 0) {
                         Ember.svgobject.setAttribute("cx", x - 10);
                         Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
-                    } else {
-                        irany = iranySzam();
-                    }
+                    } else irany = iranySzam();
+
                     break;
                 case 2:
                     if (y - 10 > 0) {
                         Ember.svgobject.setAttribute("cy", y - 10);
                         Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
-                    } else {
-                        irany = iranySzam();
-                    }
+                    } else irany = iranySzam();
+
                     break;
                 case 3:
                     if (x + 10 < 716) {
                         Ember.svgobject.setAttribute("cx", x + 10);
                         Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
-                    } else {
-                        irany = iranySzam();
-                    }
+                    } else irany = iranySzam();
+
                     break;
                 case 4:
                     if (y + 10 < 616) {
                         Ember.svgobject.setAttribute("cy", y + 10);
                         Ember.beteggel_egyhelyen(hossz, oltatlan, oltott, atesett);
-                    } else {
-                        irany = iranySzam();
-                    }
+                    } else irany = iranySzam();
+
                     break;
             }
         }

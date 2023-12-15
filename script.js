@@ -17,32 +17,22 @@ function oltas() {
         let oltottSzam = 10;
         let oltasIdo = 300;
 
-        if (oltottakSzama.value != "" && oltottakSzama.value > 0) {
-            oltottSzam = oltottakSzama.value;
-        } else {
-            oltottakSzama.value = oltottSzam;
-        }
+        if (oltottakSzama.value != "" && oltottakSzama.value > 0) oltottSzam = oltottakSzama.value;
+        else oltottakSzama.value = oltottSzam;
 
-        if (oltottakHossz.value != "") {
-            oltasIdo = oltottakHossz.value;
-        } else {
-            oltottakHossz.value = oltasIdo;
-        }
+        if (oltottakHossz.value != "") oltasIdo = oltottakHossz.value;
+        else oltottakHossz.value = oltasIdo;
 
-        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= oltottSzam) {
-            vilag.oltas_kezdet(oltottSzam, oltasIdo);
-        } else {
-            alert("Már nincs elég egészséges ember a világon!");
-        }
+        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= oltottSzam) vilag.oltas_kezdet(oltottSzam, oltasIdo);
+        else alert("Már nincs elég egészséges ember a világon!");
     }
 }
+
 function start() {
     let emberSzam = 10;
-    if (emberekSzama.value != "" && emberekSzama.value < 4465 && emberekSzama.value > 0) {
-        emberSzam = emberekSzama.value;
-    } else {
-        emberekSzama.value = emberSzam;
-    }
+    if (emberekSzama.value != "" && emberekSzama.value < 4465 && emberekSzama.value > 0) emberSzam = emberekSzama.value;
+    else emberekSzama.value = emberSzam;
+
     if (parseInt(emberekSzama.value) + parseInt(vilag.emberei.length) < 4465) {
         for (let i = 0; i < emberSzam; i++) {
             let randomX, randomY;
@@ -55,9 +45,7 @@ function start() {
 
             new Ember(i, "#2efc00", "#080808", false, 0, false, 0, false, 0, randomX, randomY, vilag);
         }
-    } else {
-        alert("Nem lehet több ember a világon!");
-    }
+    } else alert("Nem lehet több ember a világon!");
 }
 
 function generalSzamot(vege) {
@@ -73,7 +61,6 @@ function generalSzamot(vege) {
 
 function iranySzam() {
     let random = Math.floor(Math.random() * 4) + 1;
-
     return random;
 }
 function maszkalas() {
@@ -85,35 +72,20 @@ function maszkalas() {
     let atesett = 0.3;
 
     if (!running && vilag.emberei.length > 0) {
-        if (oltottFertozodes.value != "") {
-            oltott = oltottFertozodes.value;
-        } else {
-            oltottFertozodes.value = oltott;
-        }
+        if (oltottFertozodes.value != "") oltott = oltottFertozodes.value;
+        else oltottFertozodes.value = oltott;
 
-        if (oltatlanFertozodes.value != "") {
-            oltatlan = oltatlanFertozodes.value;
-        } else {
-            oltatlanFertozodes.value = oltatlan;
-        }
+        if (oltatlanFertozodes.value != "") oltatlan = oltatlanFertozodes.value;
+        else oltatlanFertozodes.value = oltatlan;
 
-        if (atesettHossz.value != "") {
-            atesetIdo = atesettHossz.value;
-        } else {
-            atesettHossz.value = atesetIdo;
-        }
+        if (atesettHossz.value != "") atesetIdo = atesettHossz.value;
+        else atesettHossz.value = atesetIdo;
 
-        if (betegsegHossza.value != "") {
-            beteghossz = betegsegHossza.value;
-        } else {
-            betegsegHossza.value = beteghossz;
-        }
+        if (betegsegHossza.value != "") beteghossz = betegsegHossza.value;
+        else betegsegHossza.value = beteghossz;
 
-        if (atesettFertozodes.value != "") {
-            atesett = atesettFertozodes.value;
-        } else {
-            atesettFertozodes.value = atesett;
-        }
+        if (atesettFertozodes.value != "") atesett = atesettFertozodes.value;
+        else atesettFertozodes.value = atesett;
 
         running = true;
 
@@ -134,22 +106,13 @@ function virus_elszabadit() {
         let betegszam = 10;
         let beteghossz = 100;
 
-        if (betegekSzama.value != "" && betegekSzama.value > 0) {
-            betegszam = betegekSzama.value;
-        } else {
-            betegekSzama.value = betegszam;
-        }
+        if (betegekSzama.value != "" && betegekSzama.value > 0) betegszam = betegekSzama.value;
+        else betegekSzama.value = betegszam;
 
-        if (betegsegHossza.value != "") {
-            beteghossz = betegsegHossza.value;
-        } else {
-            betegsegHossza.value = beteghossz;
-        }
+        if (betegsegHossza.value != "") beteghossz = betegsegHossza.value;
+        else betegsegHossza.value = beteghossz;
 
-        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= betegszam) {
-            vilag.virus_kezdet(betegszam, beteghossz);
-        } else {
-            alert("Már nincs elég egészséges ember a világon!");
-        }
+        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= betegszam) vilag.virus_kezdet(betegszam, beteghossz);
+        else alert("Már nincs elég egészséges ember a világon!");
     }
 }
