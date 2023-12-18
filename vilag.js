@@ -10,6 +10,7 @@ class Vilag {
         this.betegseg_ido_csokkenes(atesetIdo);
         this.oltas_ido_csokkenes();
         this.atesett_ido_csokkenes();
+        console.log(this.atesettek);
         /*
         1:bal
         2:fel
@@ -89,14 +90,14 @@ class Vilag {
     betegseg_ido_csokkenes(atesettIdo) {
         for (const Beteg of this.betegei) {
             Beteg.betegsegHossz--;
-            if (Beteg.betegsegHossz == 0) {
+            if (Beteg.betegsegHossz < 1) {
                 Beteg.beteg = false;
                 Beteg.atesett = true;
                 Beteg.atesetthossz = atesettIdo;
                 Beteg.belszin = "#f4fc03";
                 Beteg.svgobject.setAttribute("fill", "#f4fc03");
-                this.atesettek.push(Beteg);
                 this.betegei.splice(this.betegei.indexOf(Beteg), 1);
+                this.atesettek.push(Beteg);
             }
         }
     }
@@ -104,7 +105,7 @@ class Vilag {
     oltas_ido_csokkenes() {
         for (const Oltott of this.oltottak) {
             Oltott.oltashossz--;
-            if (Oltott.oltashossz == 0) {
+            if (Oltott.oltashossz < 1) {
                 Oltott.oltott = false;
                 Oltott.belszin = "#2efc00";
                 Oltott.svgobject.setAttribute("fill", "#2efc00");
@@ -115,7 +116,7 @@ class Vilag {
     atesett_ido_csokkenes() {
         for (const Atesett of this.atesettek) {
             Atesett.atesetthossz--;
-            if (Atesett.atesetthossz == 0) {
+            if (Atesett.atesetthossz < 1) {
                 Atesett.atesett = false;
                 Atesett.belszin = "#2efc00";
                 Atesett.svgobject.setAttribute("fill", "#2efc00");
