@@ -10,7 +10,6 @@ class Vilag {
         this.betegseg_ido_csokkenes(atesetIdo);
         this.oltas_ido_csokkenes();
         this.atesett_ido_csokkenes();
-        console.log(this.atesettek);
         /*
         1:bal
         2:fel
@@ -64,7 +63,7 @@ class Vilag {
         while (virusok < db) {
             random = Math.floor(Math.random() * this.emberei.length);
 
-            if (!this.emberei[random].beteg && !this.emberei[random].oltott) {
+            if (!this.emberei[random].beteg && !this.emberei[random].oltott && !this.emberei[random].atesett) {
                 this.emberei[random].megbetegit(hossz);
 
                 this.betegei.push(this.emberei[random]);

@@ -7,11 +7,46 @@ leteszbtn.addEventListener("click", start);
 startbtn.addEventListener("click", maszkalas);
 virusbtn.addEventListener("click", virus_elszabadit);
 oltasbtn.addEventListener("click", oltas);
+kihalbtn.addEventListener("click", kihal);
+egyensulybtn.addEventListener("click", egyensuly);
+nyerbtn.addEventListener("click", nyer);
 stopbtn.addEventListener("click", () => {
     clearInterval(idozito);
     running = false;
 });
-
+function nyer() {
+    emberekSzama.value = 500;
+    betegekSzama.value = 100;
+    betegsegHossza.value = 200;
+    oltottakSzama.value = 10;
+    oltottakHossz.value = 500;
+    atesettHossz.value = 400;
+    oltottFertozodes.value = 0.2;
+    oltatlanFertozodes.value = 0.9;
+    atesettFertozodes.value = 0.7;
+}
+function kihal() {
+    emberekSzama.value = 200;
+    betegekSzama.value = 20;
+    betegsegHossza.value = 80;
+    oltottakSzama.value = 50;
+    oltottakHossz.value = 500;
+    atesettHossz.value = 300;
+    oltottFertozodes.value = 0.2;
+    oltatlanFertozodes.value = 0.5;
+    atesettFertozodes.value = 0.3;
+}
+function egyensuly() {
+    emberekSzama.value = 200;
+    betegekSzama.value = 30;
+    betegsegHossza.value = 100;
+    oltottakSzama.value = 40;
+    oltottakHossz.value = 150;
+    atesettHossz.value = 125;
+    oltottFertozodes.value = 0.2;
+    oltatlanFertozodes.value = 0.5;
+    atesettFertozodes.value = 0.3;
+}
 function oltas() {
     if (vilag.emberei.length > 0) {
         let oltottSzam = 10;
@@ -22,8 +57,8 @@ function oltas() {
 
         if (oltottakHossz.value != "") oltasIdo = oltottakHossz.value;
         else oltottakHossz.value = oltasIdo;
-
-        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= oltottSzam) vilag.oltas_kezdet(oltottSzam, oltasIdo);
+        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= oltottSzam)
+            vilag.oltas_kezdet(oltottSzam, oltasIdo);
         else alert("Már nincs elég egészséges ember a világon!");
     }
 }
@@ -112,7 +147,8 @@ function virus_elszabadit() {
         if (betegsegHossza.value != "") beteghossz = betegsegHossza.value;
         else betegsegHossza.value = beteghossz;
 
-        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= betegszam) vilag.virus_kezdet(betegszam, beteghossz);
+        if (vilag.emberei.length - vilag.betegei.length - vilag.oltottak.length - vilag.atesettek.length >= betegszam)
+            vilag.virus_kezdet(betegszam, beteghossz);
         else alert("Már nincs elég egészséges ember a világon!");
     }
 }

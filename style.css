@@ -36,5 +36,12 @@ label {
 .label {
     font-weight: bold;
     margin-right: 10px;
-    min-width: 100px; 
+    min-width: 100px;
+}
+
+#kihalbtn,
+#nyerbtn,
+#egyensulybtn {
+    width: 70px;
+    text-align: center;
 }
