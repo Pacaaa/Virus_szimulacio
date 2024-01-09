@@ -45,3 +45,29 @@ label {
     width: 70px;
     text-align: center;
 }
+.jelmagyarazat {
+    display: flex;
+}
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.egeszseges {
+    background-color: #2efc00;
+}
+.beteg {
+    background-color: #fc0000;
+}
+.atesett {
+    background-color: #fcfc00;
+}
+.oltott {
+    background-color: #031cfc;
+}
+.egyseg {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
